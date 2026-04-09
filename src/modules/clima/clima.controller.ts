@@ -8,7 +8,7 @@ addClima = async (req: Request, res: Response) => {
  try{   
  
  
-    const UserId = (req as any ).user?.id;
+    const UserId = (req as any ).user?.sub;
     const {ciudad}=req.body;
     const result =await this.climaService.addClima({ciudad, UserId});
 res.status(201).json({result});

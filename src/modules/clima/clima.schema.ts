@@ -1,8 +1,5 @@
 import {z} from 'zod';
 
 export const createClimaSchema = z.object({
-    name: z.string().min(4),
-    email:z.email(),
-    password: z.string().min(6),
-   
+   ciudad: z.string().min(1, "La ciudad es requerida")
 })
