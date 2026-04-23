@@ -5,12 +5,16 @@ import {connectDb} from "./config/db.js"
 import { env } from "./config/env.js";
 
 
-const bootstrap = async () => (
-    await connectDb();
+const bootstrap = async () => {
+    try {
+        await connectDb();
+        app.listen(env.port, '0.0.0.0', () => {
+            console.log(`ESCUCHANDO POR EL PT ${env.port}`);
+        });
+    } catch (error) {
+        console.error("ERROR AL INICIAR EL SERVIDOR:", error);
+    }
+};
 
-app.listen (env.port,'0.0.0.0',() => {
-    console.log(`ESCUHANDO POR EL PT ${env.port}`);
-})
-)
 bootstrap();
 
