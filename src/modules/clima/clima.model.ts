@@ -1,5 +1,5 @@
 export interface IClima {
-  usuarioId: string;    
+  UserId: string;    
   ciudad: string;
   temperatura: number;
   descripcion: string;
